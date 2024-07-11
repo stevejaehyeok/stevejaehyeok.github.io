@@ -44,6 +44,12 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
 </head>
 <body>
 
@@ -90,17 +96,17 @@
           </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://stevejaehyeok.github.io/">Jaehyeok Kim</a><sup>1</sup>,</span>
+              <a href="https://stevejaehyeok.github.io/">Jaehyeok Kim</a><sup>1</sup>,</span>&ensp;
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=oEKX8h0AAAAJ&hl=ko/">Dongyoon Wee</a><sup>2</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=oEKX8h0AAAAJ&hl=ko/">Dongyoon Wee</a><sup>2</sup>,</span>&ensp;
             <span class="author-block">
               <a href="https://www.danxurgb.net/">Dan Xu</a><sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Department of CSE, HKUST,</span>
-            <span class="author-block"><sup>2</sup>Clova AI Video, NAVER Corp.</span>
+            <span class="author-block"><sup>1</sup>Department of CSE, HKUST</span>&emsp;&emsp;
+            <span class="author-block"><sup>2</sup>NAVER Cloud Corp.</span>
           </div>
 
           <div class="column has-text-centered">
@@ -136,12 +142,12 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/stevejaehyeok/"
+                <a href="https://github.com/stevejaehyeok/MoCo-NeRF"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Soon)</span>
+                  <span>Code</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -281,10 +287,13 @@
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
+        <h2 class="title is-3">Demo Video</h2>
         <div class="publication-video">
           <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./static/images/demo.mp4" type="video/mp4">
+                  </video>
         </div>
       </div>
     </div>
@@ -341,7 +350,7 @@
                       type="video/mp4">
             </video>
           </div>
-  
+          
         </div>
       </div> -->
     </div>
@@ -358,37 +367,46 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">Interactive Visualization of Radiance Residuals</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <!-- <h3 class="title is-4">Interpolating states</h3> -->
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            By adjusting the coefficients $\delta$ of radiance and density residuals in $ {(c + \delta\Delta c, \sigma + \delta\Delta \sigma)}$, we can observe the effectiveness of our approach in modeling non-rigid motions.
           </p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
+        <div class="columns is-vcentered is-centered interpolation-panel">
+          <!-- I want to make these three images to always have the same size -->
+          <!-- how? tell me below -->
           <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
+            <img src="./static/images/386_input.jpg"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
+            <div style="height:30px;">
+              <p>Input Frame</p>
+            </div>
           </div>
-          <div class="column interpolation-video-column">
+          <div class="column is-3 interpolation-video-column">
+            <center>
             <div id="interpolation-image-wrapper">
               Loading...
             </div>
+            </center>
+            <div style="height:30px;">
             <input class="slider is-fullwidth is-large is-info"
                    id="interpolation-slider"
                    step="1" min="0" max="100" value="0" type="range">
+            </div>
+
           </div>
           <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
+            <img src="./static/images/386_gt.jpg"
                  class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
+                 alt="Interpolate start reference image."/>
+            <div style="height:30px;">
+              <p>Novel-view GT</p>
+            </div>
           </div>
         </div>
         <br/>
