@@ -32,6 +32,9 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/app.css">
+  <!-- <link rel="stylesheet" href="./static/css/before_after.css"> -->
+
   <link rel="shortcut icon" href="../../images/HKUST_1.ico" type="image/vnd.microsoft.icon" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
@@ -43,7 +46,14 @@
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <!-- <script src="twentytwenty/js/jquery-3.2.1.min.js" defer type="text/javascript"></script>
+  <script src="twentytwenty/js/jquery.event.move.js" defer type="text/javascript"></script>
+  <script src="twentytwenty/js/jquery.twentytwenty.js" defer type="text/javascript"></script> -->
+  <!-- <link rel="stylesheet" href="twentytwenty/css/twentytwenty.css" type="text/css" media="screen" /> -->
+
   <!-- <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
@@ -179,106 +189,6 @@
   </div>
 </section>
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <img width="99%" src="../../images/moconerf_teaser.png" alt="img">
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <img width="99%" src="../../images/moconerf_teaser.png" alt="img">
-        <div class="content has-text-justified">
-          <p>
-            This paper introduces Motion-oriented Compositional Neural Radiance Fields (MoCo-NeRF), a framework designed to perform free-viewpoint rendering of monocular human videos via novel non-rigid motion modeling approach. In the context of dynamic clothed humans, complex cloth dynamics generate non-rigid motions that are intrinsically distinct from skeletal articulations and critically important for the rendering quality. The conventional approach models non-rigid motions as spatial (3D) deviations in addition to skeletal transformations. However, it is either time-consuming or challenging to achieve optimal quality due to its high learning complexity without a direct supervision. To target this problem, we propose a novel approach of modeling non-rigid motions as radiance residual fields to benefit from more direct color supervision in the rendering and utilize the rigid radiance fields as a prior to reduce the complexity of the learning process. Our approach utilizes a single multiresolution hash encoding (MHE) to concurrently learn the canonical T-pose representation from rigid skeletal motions and the radiance residual field for non-rigid motions. Additionally, to further improve both training efficiency and usability, we extend MoCo-NeRF to support simultaneous training of multiple subjects within a single framework, thanks to our effective design for modeling non-rigid motions. This scalability is achieved through the integration of a global MHE and learnable identity codes in addition to multiple local MHEs. We present extensive results on ZJU-MoCap and MonoCap, clearly demonstrating state-of-the-art performance in both single- and multi-subject settings. The code and model will be made publicly available.
-          </p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
 <section class="section" style="padding-top: 0rem; padding-bottom: 0rem;">
   <div class="container is-max-desktop">
     <!-- Paper video. -->
@@ -307,64 +217,198 @@
         <img width="99%" src="../../images/moconerf_teaser.png" alt="img">
       </div>
     </div>
-    <!--/ Abstract. -->
-    
-    <!-- Pipeline. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Pipeline</h2>
-        <img width="99%" src="../../images/MoCo-NeRF_framework_overview.jpg" alt="img">
-        <p> Framework Overview </p> 
-        <hr>
-        <div class="columns is-centered">
-          <div class="column">
-            <img width="99%" src="../../images/MoCo-NeRF_attention.jpg" alt="img">
-            <p>Attention-Based Pose-embedded Implicit Feature Generation</p>
-          </div>
-          <div class="column">
-            <img width="99%" src="../../images/MoCo-NeRF_framework_multiID.jpg" alt="img">
-            <p>Extended architecture of MoCo-NeRF for the multi-subject unified training</p>
-          </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Single-subject Comparisons (Per-subject Training)</h2>
+    <!-- single-subject 392 -->
+    <div class="columns is-centered">
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursGau392" loop playsinline autoPlay muted controls src="./static/videos/ours_gauhuman_single_392.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursGau392Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 116px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">GauHuman [1]</b></span>
         </div>
       </div>
-    </div> -->
-    <!--/ Paper video. -->
-    <!-- <div class="columns is-centered"> -->
-  
-      <!-- Visual Effects. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursNVR392" loop playsinline autoPlay muted controls src="./static/videos/ours_instantnvr_single_392.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursNVR392Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 111px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">Instant-NVR [2]</b></span>
         </div>
-      </div> -->
-      <!--/ Visual Effects. -->
-  
-      <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursHumannerf392" loop playsinline autoPlay muted controls src="./static/videos/ours_humannerf_single_392.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursHumannerf392Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 105px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">HumanNeRF [3]</b></span>
         </div>
-      </div> -->
+      </div>
     </div>
+
+    <!-- single-subject 394 -->
+    <div class="columns is-centered">
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursGau394" loop playsinline autoPlay muted controls src="./static/videos/ours_gauhuman_single_394.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursGau394Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 116px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">GauHuman [1]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursNVR394" loop playsinline autoPlay muted controls src="./static/videos/ours_instantnvr_single_394.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursNVR394Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 111px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">Instant-NVR [2]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursHumannerf394" loop playsinline autoPlay muted controls src="./static/videos/ours_humannerf_single_394.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursHumannerf394Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 105px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">HumanNeRF [3]</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- single-subject 393 -->
+    <div class="columns is-centered">
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursGau393" loop playsinline autoPlay muted controls src="./static/videos/ours_gauhuman_single_393.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursGau393Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 116px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">GauHuman [1]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursNVR393" loop playsinline autoPlay muted controls src="./static/videos/ours_instantnvr_single_393.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursNVR393Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 111px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">Instant-NVR [2]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="oursHumannerf393" loop playsinline autoPlay muted controls src="./static/videos/ours_humannerf_single_393.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas height=0 class="videoMerge" id="oursHumannerf393Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 105px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">HumanNeRF [3]</b></span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Multi-subject Comparisons (Unified Training)</h2>
+    <!-- single-subject 377 -->
+    <div class="columns is-centered">
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursGau377" loop playsinline autoPlay muted controls src="./static/videos/ours_gauhuman_multi_377.mp4" onplay="resizeAndPlay(this, 0.35)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursGau377Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 116px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">GauHuman [1]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursNVR377" loop playsinline autoPlay muted controls src="./static/videos/ours_instantnvr_multi_377.mp4" onplay="resizeAndPlay(this, 0.35)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursNVR377Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 111px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">Instant-NVR [2]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursHumannerf377" loop playsinline autoPlay muted controls src="./static/videos/ours_humannerf_multi_377.mp4" onplay="resizeAndPlay(this, 0.35)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursHumannerf377Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 105px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">HumanNeRF [3]</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- single-subject 386 -->
+    <div class="columns is-centered">
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursGau386" loop playsinline autoPlay muted controls src="./static/videos/ours_gauhuman_multi_386.mp4" onplay="resizeAndPlay(this, 0.6)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursGau386Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 116px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">GauHuman [1]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursNVR386" loop playsinline autoPlay muted controls src="./static/videos/ours_instantnvr_multi_386.mp4" onplay="resizeAndPlay(this, 0.6)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursNVR386Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 111px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">Instant-NVR [2]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursHumannerf386" loop playsinline autoPlay muted controls src="./static/videos/ours_humannerf_multi_386.mp4" onplay="resizeAndPlay(this, 0.6)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursHumannerf386Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 105px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">HumanNeRF [3]</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- single-subject 387 -->
+    <div class="columns is-centered">
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursGau387" loop playsinline autoPlay muted controls src="./static/videos/ours_gauhuman_multi_387.mp4" onplay="resizeAndPlay(this, 0.35)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursGau387Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 116px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">GauHuman [1]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursNVR387" loop playsinline autoPlay muted controls src="./static/videos/ours_instantnvr_multi_387.mp4" onplay="resizeAndPlay(this, 0.35)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursNVR387Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 111px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">Instant-NVR [2]</b></span>
+        </div>
+      </div>
+
+      <div class="column" style="float: left; width: 304px;">
+        <div class="content has-text-justified">
+          <video class="video" id="multiOursHumannerf387" loop playsinline autoPlay muted controls src="./static/videos/ours_humannerf_multi_387.mp4" onplay="resizeAndPlay(this, 0.35)"></video>
+          <canvas height=0 class="videoMerge" id="multiOursHumannerf387Merge"></canvas> 
+          <span style="display: inline; text-align: left; margin-right: 105px;"><b style="font-size:20px">Ours</b></span>
+          <span style="display: inline; text-align: right;"><b style="font-size:20px">HumanNeRF [3]</b></span>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </section>
 
@@ -508,6 +552,12 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
+    <b class="title" style="font-size:20px">References</b>
+    <pre style="background-color: #FFFFFF; ">[1] Hu, S., Liu, Z.: GauHuman: Articulated gaussian splatting from monocular human videos. In: CVPR (2024)
+[2] Geng, C., Peng, S., Xu, Z., Bao, H., Zhou, X.: Learning neural volumetric representations of dynamic humans in minutes. In: CVPR (2023)
+[3] Weng, C.Y., Curless, B., Srinivasan, P.P., Barron, J.T., Kemelmacher-Shlizerman, I.: HumanNeRF: Free-viewpoint rendering of moving people from monocular video. In: CVPR (2022)
+</pre>
+
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{kim2024moconerf,
     title={Motion-Oriented Compositional Neural Radiance Fields for Monocular Dynamic Human Modeling},
@@ -535,7 +585,7 @@
       <div class="column is-8">
         <div class="content">
           <p style="text-align: center;">
-            The website template is borrowed from <a href="https://nerfies.github.io/">Nerfies</a>.
+            The website template is borrowed from <a href="https://nerfies.github.io/">Nerfies</a>, <a href="https://oppo-us-research.github.io/SpacetimeGaussians-website/">SpacetimeGaussians</a> and <a href="https://xpandora.github.io/PhysGaussian/">PhysGaussian</a>.
           </p>
         </div>
       </div>
