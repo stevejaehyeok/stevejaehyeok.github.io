@@ -43,13 +43,13 @@ function playVids(videoId, position=0.65) {
             var arrowLength = 0.09 * vidHeight;
             var arrowheadWidth = 0.025 * vidHeight;
             var arrowheadLength = 0.04 * vidHeight;
-            var arrowPosY = vidHeight / 10;
+            var arrowPosY = 9 * vidHeight / 10;
             var arrowWidth = 0.007 * vidHeight;
             var currX = vidWidth * position;
 
             // Draw circle
             mergeContext.arc(currX, arrowPosY, arrowLength*0.7, 0, Math.PI * 2, false);
-            mergeContext.fillStyle = "#FFD79340";
+            mergeContext.fillStyle = "rgba(255, 255, 255, 0.5)";
             mergeContext.fill()
             //mergeContext.strokeStyle = "#444444";
             //mergeContext.stroke()

@@ -93,12 +93,12 @@ h2 {
   margin: 0;
   font-weight: normal;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -132,4 +132,27 @@ h2 {
 
 span.highlight {
   background-color: #ffffd0;
+}
+
+.landscape-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Ensures landscape shape */
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease;
+}
+
+.landscape-thumb:hover {
+  transform: scale(2.2);
+  z-index: 2;
+}
+.landscape-thumb video,
+.landscape-thumb img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
 }
